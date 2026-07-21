@@ -353,23 +353,22 @@
 
   .result__visual {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 1 / 1;
+    max-width: 460px;
+    margin: 0 auto 26px;
     border-radius: var(--radius-md);
     background:
       radial-gradient(circle at 30% 30%, rgba(255,255,255,0.85), transparent 60%),
       linear-gradient(140deg, var(--pink-soft), var(--pink-lav));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--pink-accent-d);
-    font-weight: 800;
-    font-size: clamp(1.1rem, 3.4vw, 1.6rem);
+    overflow: hidden;
     box-shadow: var(--shadow-soft);
-    margin-bottom: 26px;
-    padding: 20px;
   }
-  /* 実商品画像を使う場合は .result__visual を <img> に置換 */
+  .result__visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   .result__name {
     font-size: clamp(1.4rem, 4.4vw, 2rem);
@@ -478,12 +477,14 @@
     width: 100%;
     aspect-ratio: 1 / 1;
     border-radius: 14px;
+    overflow: hidden;
     background:
       radial-gradient(circle at 30% 30%, rgba(255,255,255,0.85), transparent 60%),
       linear-gradient(140deg, var(--pink-soft), var(--pink-lav));
-    display: flex; align-items: center; justify-content: center;
-    color: var(--pink-accent-d); font-weight: 800; font-size: 0.95rem;
-    text-align: center; padding: 14px; margin-bottom: 16px;
+    margin-bottom: 16px;
+  }
+  .product-card__thumb img {
+    display: block; width: 100%; height: 100%; object-fit: cover;
   }
   .product-card__type {
     font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
@@ -694,7 +695,8 @@
       howto: "朝・夜、洗顔後の肌に導入美容液として使用できます。",
       url: "https://item.rakuten.co.jp/yunth/10000000/",
       btn: "生VC美白美容液を見る",
-      featShort: "美白・シミ対策"
+      featShort: "美白・シミ対策",
+      img: "images/vc.jpg"
     },
     retinol: {
       type: "ハリ・プレエイジングケアタイプ",
@@ -707,7 +709,8 @@
       howto: "夜の使用がおすすめです。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-116-001/",
       btn: "生レチノール美容液を見る",
-      featShort: "シワ改善・プレエイジングケア"
+      featShort: "シワ改善・プレエイジングケア",
+      img: "images/retinol.jpg"
     },
     azelaic: {
       type: "皮脂・なめらか肌ケアタイプ",
@@ -720,7 +723,8 @@
       howto: "朝・夜使用できますが、メイク前の使用はおすすめしていません。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-125-001/",
       btn: "生アゼライン酸美容液を見る",
-      featShort: "皮脂対策・肌荒れ防止"
+      featShort: "皮脂対策・肌荒れ防止",
+      img: "images/azelaic.jpg"
     },
     pdrn: {
       type: "水光ツヤ肌ケアタイプ",
@@ -733,7 +737,8 @@
       howto: "朝・夜使用できます。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-126-001/",
       btn: "生PDRN美容液を見る",
-      featShort: "ハリ・キメケア"
+      featShort: "ハリ・キメケア",
+      img: "images/pdrn.jpg"
     }
   };
 
@@ -757,7 +762,8 @@
   function renderResult(key) {
     const p = PRODUCTS[key];
     document.getElementById("rType").textContent = p.type;
-    document.getElementById("rVisual").textContent = p.name;
+    document.getElementById("rVisual").innerHTML =
+      `<img src="${p.img}" alt="${p.name}">`;
     document.getElementById("rName").textContent = p.name;
     document.getElementById("rCatch").textContent = p.catch;
     document.getElementById("rReason").textContent = p.reason;
@@ -810,7 +816,7 @@
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-      <div class="product-card__thumb">${p.name}</div>
+      <div class="product-card__thumb"><img src="${p.img}" alt="${p.name}"></div>
       <span class="product-card__type">${p.type}</span>
       <h3 class="product-card__name">${p.name}</h3>
       <p class="product-card__feat">${p.featShort}<br>${p.catch}</p>
