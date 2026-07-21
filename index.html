@@ -121,12 +121,12 @@
     max-width: var(--content-max);
     width: 100%;
   }
-  .fv__brand {
-    font-size: 0.85rem;
-    letter-spacing: 0.4em;
-    color: var(--pink-accent-d);
-    font-weight: 700;
-    margin-bottom: 22px;
+  .fv__logo {
+    width: clamp(160px, 26vw, 240px);
+    height: auto;
+    margin: 0 auto 26px;
+    display: block;
+    filter: drop-shadow(0 2px 10px rgba(255,255,255,0.5));
   }
   .fv__title {
     font-size: clamp(1.9rem, 6vw, 3.4rem);
@@ -547,7 +547,7 @@
       </picture>
     -->
     <div class="fv__inner">
-      <p class="fv__brand">Y U N T H</p>
+      <img class="fv__logo" src="images/logo.png" alt="Yunth">
       <h1 class="fv__title">
         あなたの肌が今ほしい<br>
         <span class="accent">Yunth美容液診断</span>
