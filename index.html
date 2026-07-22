@@ -422,6 +422,15 @@
     color: var(--text-sub);
   }
 
+  .result__footnotes {
+    margin-top: 18px;
+    font-size: 0.72rem;
+    color: var(--text-sub);
+    line-height: 1.6;
+  }
+  .result__footnotes p { margin-bottom: 3px; }
+  .result__name sup, .btn-product sup, .result__block sup, .result__catch sup { font-size: 0.5em; font-weight: 700; vertical-align: super; }
+
   .result__actions {
     display: flex;
     flex-direction: column;
@@ -672,6 +681,8 @@
           <p id="rHowto"></p>
         </div>
 
+        <div class="result__footnotes" id="rNotes"></div>
+
         <div class="result__actions">
           <a href="#" class="btn-product" id="rLink" target="_blank" rel="noopener">
             <span id="rBtnLabel"></span> <span>›</span>
@@ -725,11 +736,13 @@
       reason: "日焼けによるシミ・そばかすを防ぎたい方や、うるおいを与えて透明感のある印象を目指したい方におすすめです。",
       feature: "美白・シミ対策",
       featureNote: "美白、シミ対策とは、メラニンの生成を抑え、しみ・そばかすを防ぐことです。",
-      texture: "肌にのせると、独自配合の生ビタミンCにより温感を感じることがあります。オイルのようなとろみのある、濃密な使用感です。",
+      texture: "肌にのせると、独自配合の生ビタミンC<sup>＊</sup>により温感を感じることがあります。オイルのようなとろみのある、濃密な使用感です。",
       howto: "朝・夜、洗顔後の肌に導入美容液として使用できます。",
       url: "https://item.rakuten.co.jp/yunth/10000000/",
       btn: "生VC美白美容液を見る",
       featShort: "美白・シミ対策",
+      nameHtml: "生VC美白美容液",
+      ingredientNote: "＊アスコルビン酸",
       img: "images/vc.jpg"
     },
     retinol: {
@@ -771,7 +784,7 @@
       reason: "肌をやわらかく整えたい方、ごわつきやキメの乱れが気になる方、うるおいによる明るい水光肌を目指したい方におすすめです。浸透感のある使い心地を重視する方にもおすすめです。",
       feature: "ハリ・キメケア",
       featureNote: "",
-      texture: "ぷるんとゼリーのようなテクスチャーです。生PDRNをリポソーム化することで、肌に塗布すると素早く角質層まで浸透します。",
+      texture: "ぷるんとゼリーのようなテクスチャーです。生PDRN<sup>＊</sup>をリポソーム化することで、肌に塗布すると素早く角質層まで浸透します。",
       howto: "朝・夜使用できます。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-126-001/",
       btn: "生PDRN<sup>＊</sup>美容液を見る",
@@ -818,8 +831,13 @@
       feat.appendChild(n);
     }
 
-    document.getElementById("rTexture").textContent = p.texture;
+    document.getElementById("rTexture").innerHTML = p.texture;
     document.getElementById("rHowto").textContent = p.howto;
+
+    // 結果画面の注釈（＊成分名など）
+    document.getElementById("rNotes").innerHTML =
+      p.ingredientNote ? `<p>${p.ingredientNote}</p>` : "";
+
     const link = document.getElementById("rLink");
     link.href = p.url;
     document.getElementById("rBtnLabel").innerHTML = p.btn;
