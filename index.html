@@ -504,6 +504,11 @@
   .product-card__name {
     font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--text-main);
   }
+  .product-card__name sup { font-size: 0.55em; font-weight: 700; vertical-align: super; }
+  .product-card__ingredient {
+    font-size: 0.66rem; color: var(--text-sub); line-height: 1.5;
+    margin: -4px 0 10px;
+  }
   .product-card__feat { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 18px; flex: 1; }
   .product-card__link {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -563,7 +568,7 @@
       <img class="fv__lineup" src="images/lineup.png" alt="Yunth美容液 4種ラインナップ">
       <p class="fv__sub">
         簡単な質問に答えて、<br>
-        今のあなたにぴったりの1本を見つけよう。
+        今のあなたにぴったりの美容液を見つけよう。
       </p>
       <div><span class="fv__note">最大2問で診断</span></div>
       <a href="#shindan" class="btn-cta">
@@ -595,11 +600,11 @@
         <p class="question__text">あなたが今、一番叶えたいのは？</p>
         <div class="options">
           <button class="option" data-next="result" data-product="vc">
-            <span>シミ・透明感をケアしたい</span>
+            <span>これからのシミ・うるおいによる透明感をケアしたい</span>
             <span class="option__arrow">›</span>
           </button>
           <button class="option" data-next="q2">
-            <span>年齢サインや肌質を整えたい</span>
+            <span>年齢サインや肌を整えたい</span>
             <span class="option__arrow">›</span>
           </button>
         </div>
@@ -675,7 +680,7 @@
     <section class="card notes">
       <h3>注釈・注意事項</h3>
       <ul>
-        <li>美白とは、メラニンの生成を抑え、しみ・そばかすを防ぐことです。（生VC美白美容液）</li>
+        <li>美白、シミ対策とは、メラニンの生成を抑え、しみ・そばかすを防ぐことです。（生VC美白美容液）</li>
         <li>エイジングケアとは、年齢に応じたうるおいケアのことです。（生レチノール美容液）</li>
         <li>本診断は肌悩みに合わせたおすすめ商品をご提案するものであり、効果・効能を保証するものではありません。</li>
         <li>使用感には個人差があります。お肌に異常が生じていないかよく注意してご使用ください。</li>
@@ -719,14 +724,16 @@
       url: "https://item.rakuten.co.jp/yunth/yb-116-001/",
       btn: "生レチノール美容液を見る",
       featShort: "シワ改善・プレエイジングケア",
+      nameHtml: "生レチノール<sup>※</sup>美容液",
+      ingredientNote: "※レチノール油液（整肌）",
       img: "images/retinol.jpg"
     },
     azelaic: {
       type: "皮脂・なめらか肌ケアタイプ",
-      name: "生アゼライン酸美容液",
+      name: "生アゼライン酸（保湿）美容液",
       catch: "皮脂やテカリを抑え、なめらかな肌を目指したいあなたへ。",
       reason: "皮脂やテカリが気になる方、乾燥による毛穴目立ちが気になる方、肌をさっぱり整えたい方におすすめです。暑い季節に肌が敏感になりやすい方や、敏感肌だけれど肌を整えたい方にもおすすめです。",
-      feature: "皮脂対策・肌荒れ防止",
+      feature: "皮脂対策（肌の水分、油分を補い保つこと）肌を健やかに保つことによる肌荒れ防止",
       featureNote: "",
       texture: "さっぱりと角質層まで浸透する、さらりとしたテクスチャーです。",
       howto: "朝・夜使用できますが、メイク前の使用はおすすめしていません。化粧水の後、シートマスクの前に使用してください。",
@@ -747,6 +754,8 @@
       url: "https://item.rakuten.co.jp/yunth/yb-126-001/",
       btn: "生PDRN美容液を見る",
       featShort: "ハリ・キメケア",
+      nameHtml: "生PDRN<sup>※</sup>美容液",
+      ingredientNote: "※DNA-Na（整肌）",
       img: "images/pdrn.jpg"
     }
   };
@@ -827,7 +836,8 @@
     card.innerHTML = `
       <div class="product-card__thumb"><img src="${p.img}" alt="${p.name}"></div>
       <span class="product-card__type">${p.type}</span>
-      <h3 class="product-card__name">${p.name}</h3>
+      <h3 class="product-card__name">${p.nameHtml || p.name}</h3>
+      ${p.ingredientNote ? `<p class="product-card__ingredient">${p.ingredientNote}</p>` : ""}
       <p class="product-card__feat">${p.featShort}<br>${p.catch}</p>
       <a class="product-card__link" href="${p.url}" target="_blank" rel="noopener">${p.btn} ›</a>
     `;
