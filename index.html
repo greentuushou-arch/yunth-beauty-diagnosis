@@ -534,7 +534,7 @@
   }
   .notes ul { list-style: none; }
   .notes li { padding-left: 1.1em; text-indent: -1.1em; margin-bottom: 6px; }
-  .notes li::before { content: "※ "; color: var(--pink-accent-d); }
+  .notes li::before { content: "＊ "; color: var(--pink-accent-d); }
 
   footer {
     text-align: center;
@@ -733,10 +733,10 @@
       texture: "肌を心地よく包み込み、じゅわっと角質層まで浸透する使用感です。",
       howto: "夜の使用がおすすめです。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-116-001/",
-      btn: "生レチノール<sup>※</sup>美容液を見る",
+      btn: "生レチノール<sup>＊</sup>美容液を見る",
       featShort: "シワ改善・プレエイジングケア",
-      nameHtml: "生レチノール<sup>※</sup>美容液",
-      ingredientNote: "※レチノール油液〜（整肌）",
+      nameHtml: "生レチノール<sup>＊</sup>美容液",
+      ingredientNote: "＊レチノール油液〜（整肌）",
       img: "images/retinol.jpg"
     },
     azelaic: {
@@ -749,10 +749,10 @@
       texture: "さっぱりと角質層まで浸透する、さらりとしたテクスチャーです。",
       howto: "朝・夜使用できますが、メイク前の使用はおすすめしていません。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-125-001/",
-      btn: "生アゼライン酸<sup>※</sup>美容液を見る",
+      btn: "生アゼライン酸<sup>＊</sup>美容液を見る",
       featShort: "皮脂対策・肌荒れ防止",
-      nameHtml: "生アゼライン酸<sup>※</sup>美容液",
-      ingredientNote: "※アゼライン酸（保湿）",
+      nameHtml: "生アゼライン酸<sup>＊</sup>美容液",
+      ingredientNote: "＊アゼライン酸（保湿）",
       img: "images/azelaic.jpg"
     },
     pdrn: {
@@ -765,10 +765,10 @@
       texture: "ぷるんとゼリーのようなテクスチャーです。生PDRNをリポソーム化することで、肌に塗布すると素早く角質層まで浸透します。",
       howto: "朝・夜使用できます。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-126-001/",
-      btn: "生PDRN<sup>※</sup>美容液を見る",
+      btn: "生PDRN<sup>＊</sup>美容液を見る",
       featShort: "ハリ・キメケア",
-      nameHtml: "生PDRN<sup>※</sup>美容液",
-      ingredientNote: "※DNA-Na（整肌）",
+      nameHtml: "生PDRN<sup>＊</sup>美容液",
+      ingredientNote: "＊DNA-Na（整肌）",
       img: "images/pdrn.jpg"
     }
   };
@@ -805,7 +805,7 @@
     if (p.featureNote) {
       const n = document.createElement("span");
       n.className = "note";
-      n.textContent = "※" + p.featureNote;
+      n.textContent = "＊" + p.featureNote;
       feat.appendChild(n);
     }
 
