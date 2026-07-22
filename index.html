@@ -743,6 +743,8 @@
       featShort: "美白・シミ対策",
       nameHtml: "生VC美白美容液",
       ingredientNote: "＊うるおいによる<br>＊アスコルビン酸",
+      cardName: "生VC美白<sup>＊</sup>美容液",
+      cardNote: "＊うるおいによる<br>＊メラニンの生成を抑え、しみ・そばかすを防ぐ",
       img: "images/vc.jpg"
     },
     retinol: {
@@ -877,8 +879,8 @@
     card.innerHTML = `
       <div class="product-card__thumb"><img src="${p.img}" alt="${p.name}"></div>
       <span class="product-card__type">${p.type}</span>
-      <h3 class="product-card__name">${p.nameHtml || p.name}</h3>
-      ${p.ingredientNote ? `<p class="product-card__ingredient">${p.ingredientNote}</p>` : ""}
+      <h3 class="product-card__name">${p.cardName || p.nameHtml || p.name}</h3>
+      ${(p.cardNote || p.ingredientNote) ? `<p class="product-card__ingredient">${p.cardNote || p.ingredientNote}</p>` : ""}
       <p class="product-card__feat">${p.featShort}<br>${p.catch}</p>
       ${p.featNote ? `<p class="product-card__ingredient">${p.featNote}</p>` : ""}
       <a class="product-card__link" href="${p.url}" target="_blank" rel="noopener">${p.btn} ›</a>
