@@ -524,7 +524,7 @@
   .product-card__name {
     font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--text-main);
   }
-  .product-card__name sup { font-size: 0.55em; font-weight: 700; vertical-align: super; }
+  .product-card__name sup, .product-card__feat sup { font-size: 0.55em; font-weight: 700; vertical-align: super; }
   .product-card__ingredient {
     font-size: 0.66rem; color: var(--text-sub); line-height: 1.5;
     margin: -4px 0 10px;
@@ -772,9 +772,10 @@
       howto: "朝・夜使用できますが、メイク前の使用はおすすめしていません。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-125-001/",
       btn: "生アゼライン酸<sup>＊</sup>美容液を見る",
-      featShort: "皮脂対策・肌荒れ防止",
+      featShort: "皮脂対策<sup>＊</sup>・肌荒れ防止<sup>＊</sup>",
       nameHtml: "生アゼライン酸<sup>＊</sup>美容液",
       ingredientNote: "＊アゼライン酸（保湿）",
+      featNote: "＊肌の水分、油分を補い保つこと<br>＊肌を健やかに保つことによる",
       img: "images/azelaic.jpg"
     },
     pdrn: {
@@ -879,6 +880,7 @@
       <h3 class="product-card__name">${p.nameHtml || p.name}</h3>
       ${p.ingredientNote ? `<p class="product-card__ingredient">${p.ingredientNote}</p>` : ""}
       <p class="product-card__feat">${p.featShort}<br>${p.catch}</p>
+      ${p.featNote ? `<p class="product-card__ingredient">${p.featNote}</p>` : ""}
       <a class="product-card__link" href="${p.url}" target="_blank" rel="noopener">${p.btn} ›</a>
     `;
     grid.appendChild(card);
