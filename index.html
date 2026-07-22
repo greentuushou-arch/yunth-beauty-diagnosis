@@ -524,7 +524,7 @@
   .product-card__name {
     font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; color: var(--text-main);
   }
-  .product-card__name sup, .product-card__feat sup { font-size: 0.55em; font-weight: 700; vertical-align: super; }
+  .product-card__name sup, .product-card__feat sup, .product-card__type sup, .result__type sup { font-size: 0.55em; font-weight: 700; vertical-align: super; }
   .product-card__ingredient {
     font-size: 0.66rem; color: var(--text-sub); line-height: 1.5;
     margin: -4px 0 10px;
@@ -730,7 +730,7 @@
   ================================================================ */
   const PRODUCTS = {
     vc: {
-      type: "透明感ケアタイプ",
+      type: "シミ・透明感<sup>＊</sup>ケアタイプ",
       name: "生VC美白美容液",
       catch: "シミを防ぎ、うるおいによる透明感のある印象を目指したいあなたへ。",
       reason: "日焼けによるシミ・そばかすを防ぎたい方や、うるおいを与えて透明感のある印象を目指したい方におすすめです。",
@@ -742,7 +742,7 @@
       btn: "生VC美白美容液を見る",
       featShort: "美白・シミ対策",
       nameHtml: "生VC美白美容液",
-      ingredientNote: "＊アスコルビン酸",
+      ingredientNote: "＊うるおいによる<br>＊アスコルビン酸",
       img: "images/vc.jpg"
     },
     retinol: {
@@ -815,7 +815,7 @@
 
   function renderResult(key) {
     const p = PRODUCTS[key];
-    document.getElementById("rType").textContent = p.type;
+    document.getElementById("rType").innerHTML = p.type;
     document.getElementById("rVisual").innerHTML =
       `<img src="${p.img}" alt="${p.name}">`;
     document.getElementById("rName").innerHTML = p.nameHtml || p.name;
