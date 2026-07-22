@@ -882,7 +882,7 @@
       ${(p.cardNote || p.ingredientNote) ? `<p class="product-card__ingredient">${p.cardNote || p.ingredientNote}</p>` : ""}
       <p class="product-card__feat">${p.featShort}<br>${p.catch}</p>
       ${p.featNote ? `<p class="product-card__ingredient">${p.featNote}</p>` : ""}
-      <a class="product-card__link" href="${p.url}" target="_blank" rel="noopener">${p.btn} ›</a>
+      <a class="product-card__link" href="${p.url}" target="_blank" rel="noopener"><span>${p.btn}</span> <span>›</span></a>
     `;
     grid.appendChild(card);
   });
