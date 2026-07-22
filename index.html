@@ -385,6 +385,9 @@
     color: var(--text-main);
     margin-bottom: 10px;
   }
+  .result__name sup, .btn-product sup {
+    font-size: 0.5em; font-weight: 700; vertical-align: super;
+  }
   .result__catch {
     text-align: center;
     color: var(--pink-accent-d);
@@ -722,10 +725,10 @@
       texture: "肌を心地よく包み込み、じゅわっと角質層まで浸透する使用感です。",
       howto: "夜の使用がおすすめです。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-116-001/",
-      btn: "生レチノール美容液を見る",
+      btn: "生レチノール<sup>※</sup>美容液を見る",
       featShort: "シワ改善・プレエイジングケア",
       nameHtml: "生レチノール<sup>※</sup>美容液",
-      ingredientNote: "※レチノール油液（整肌）",
+      ingredientNote: "※レチノール油液〜（整肌）",
       img: "images/retinol.jpg"
     },
     azelaic: {
@@ -738,7 +741,7 @@
       texture: "さっぱりと角質層まで浸透する、さらりとしたテクスチャーです。",
       howto: "朝・夜使用できますが、メイク前の使用はおすすめしていません。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-125-001/",
-      btn: "生アゼライン酸美容液を見る",
+      btn: "生アゼライン酸<sup>※</sup>美容液を見る",
       featShort: "皮脂対策・肌荒れ防止",
       nameHtml: "生アゼライン酸<sup>※</sup>美容液",
       ingredientNote: "※アゼライン酸（保湿）",
@@ -754,7 +757,7 @@
       texture: "ぷるんとゼリーのようなテクスチャーです。生PDRNをリポソーム化することで、肌に塗布すると素早く角質層まで浸透します。",
       howto: "朝・夜使用できます。化粧水の後、シートマスクの前に使用してください。",
       url: "https://item.rakuten.co.jp/yunth/yb-126-001/",
-      btn: "生PDRN美容液を見る",
+      btn: "生PDRN<sup>※</sup>美容液を見る",
       featShort: "ハリ・キメケア",
       nameHtml: "生PDRN<sup>※</sup>美容液",
       ingredientNote: "※DNA-Na（整肌）",
@@ -784,7 +787,7 @@
     document.getElementById("rType").textContent = p.type;
     document.getElementById("rVisual").innerHTML =
       `<img src="${p.img}" alt="${p.name}">`;
-    document.getElementById("rName").textContent = p.name;
+    document.getElementById("rName").innerHTML = p.nameHtml || p.name;
     document.getElementById("rCatch").textContent = p.catch;
     document.getElementById("rReason").textContent = p.reason;
 
@@ -802,7 +805,7 @@
     document.getElementById("rHowto").textContent = p.howto;
     const link = document.getElementById("rLink");
     link.href = p.url;
-    document.getElementById("rBtnLabel").textContent = p.btn;
+    document.getElementById("rBtnLabel").innerHTML = p.btn;
 
     resultSection.classList.add("is-visible");
     // 進行表示は完了状態に
