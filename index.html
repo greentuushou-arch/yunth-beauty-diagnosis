@@ -272,6 +272,14 @@
 
   .options { display: flex; flex-direction: column; gap: 14px; }
 
+  .option sup { font-size: 0.55em; font-weight: 700; vertical-align: super; }
+  .question__note {
+    margin-top: 14px;
+    font-size: 0.72rem;
+    color: var(--text-sub);
+    line-height: 1.6;
+  }
+
   .option {
     display: flex;
     align-items: center;
@@ -623,7 +631,7 @@
             <span class="option__arrow">›</span>
           </button>
           <button class="option" data-next="result" data-product="azelaic">
-            <span>皮脂・テカリ・毛穴が気になる</span>
+            <span>皮脂・テカリ・毛穴<sup>＊</sup>が気になる</span>
             <span class="option__arrow">›</span>
           </button>
           <button class="option" data-next="result" data-product="pdrn">
@@ -631,6 +639,7 @@
             <span class="option__arrow">›</span>
           </button>
         </div>
+        <p class="question__note">＊乾燥による毛穴目立ちのこと</p>
       </div>
     </section>
 
